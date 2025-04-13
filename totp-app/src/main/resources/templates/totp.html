@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Верифікація TOTP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 350px;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            text-align: left;
+	    margin-top: 20px;
+            margin-bottom: 5px;
+	    margin-left: 10px;
+        }
+        input {
+            width: 90%;
+            padding: 10px;
+	    margin-top: 5px;
+            margin-bottom: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+	    margin-left: auto;
+            margin-right: auto;
+        }
+        button {
+            width: 85%;
+            padding: 10px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+        .post {
+            margin-top: 15px;
+	    margin-button: 15px;
+        }
+        .post h3 a {
+            color: #3498db;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .post h3 a:hover {
+            text-decoration: underline;
+        }
+	.description {
+	    margin-top: 5px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Введіть код TOTP</h1>
+        <div class="post">
+            <p class="description">Код генерується сервером та виводиться в консоль (дійсний протягом 30 секунд).</p>
+            
+            <!-- Форма для введення коду TOTP -->
+            <form method="post" action="/totp-verify">
+                <p><label for="code">Введіть 6-значний код:</label>
+                <input type="text" name="code" id="code" placeholder="6-значний код" required/></p>
+                <p><button type="submit">Підтвердити</button></p>
+            </form>
+            
+            <!-- Повідомлення про помилку, якщо введено неправильний або прострочений код -->
+            <p th:if="${param.error}" class="error">
+                Incorrect or expired code. Please try again.
+            </p>
+        </div>
+
+        <div class="post">
+            <h3><a th:href="@{/login}">Повернутися до авторизації</a></h3>
+        </div>
+    </div>
+</body>
+</html>

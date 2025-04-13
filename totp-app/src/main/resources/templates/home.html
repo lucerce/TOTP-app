@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Успішна авторизація</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 65%;
+            margin: 30px auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .post {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #ecf0f1;
+            border-left: 6px solid #3498db;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .post:hover {
+            background: #d6e9f5;
+        }
+        .post h2 {
+            font-size: 22px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .post p {
+            font-size: 16px;
+            color: #7f8c8d;
+        }
+        .post a {
+            color: #3498db;
+            font-size: 18px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .post a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            text-align: right;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 16px;
+            color: #7f8c8d;
+            margin-top: 30px;
+            border-top: 1px solid #ecf0f1;
+            padding-top: 20px;
+        }
+        .footer p {
+            margin: 0;
+        }
+        .link-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .link-container a {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            background: #3498db;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .link-container a:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Курсовий проєкт на тему: Дослідження і реалізація механізму генерації одноразових паролів ТОТР</h1>
+
+        <div class="post">
+            <h2>Що таке Time-based One-time Password (ТОТР)?</h2>
+            <p>Одноразовий пароль на основі часу (TOTP) являє собою метод аутентифікації, за якого унікальні коди генеруються кожні 30-60 секунд на основі певного алгоритму.</p>
+        </div>
+
+        <div class="post">
+            <h2>Як він працює?</h2>
+            <p>TOTP заснований на секретному алгоритмі, що генерує коди. Алгоритм, унікальний для кожного екземпляра, використовує як фактор поточний час. Це дозволяє алгоритму генерувати новий унікальний код кожні 30-60 секунд.</p>
+        </div>
+
+        <div class="post">
+            <h2>Чому саме він?</h2>
+            <p>TOTP - одна з найбезпечніших і найзручніших форм багатофакторної автентифікації (MFA), що рекомендується для всіх облікових записів і забезпечує додатковий рівень захисту вашого облікового запису на додаток до пароля. Якщо хтось отримає ваш пароль і спробує увійти в обліковий запис з увімкненим MFA, він не зможе отримати доступ без другого фактора аутентифікації.</p>
+        </div>
+
+        <div class="link-container">
+            <a href="login">Сторінка з авторизацією</a>
+            <a href="totp">Сторінка з верифікацією TOTP</a>
+        </div>
+
+        <div class="footer">
+            <p>Виконала студентка групи 525-і1 Герасимюк Д.В.</p>
+        </div>
+    </div>
+</body>
+</html>
